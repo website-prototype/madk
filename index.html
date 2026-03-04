@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MadKings Esports BGMI team. Building a Kingdom of Gamers. Competitive esports, content, and community.">
+  <meta name="keywords" content="MadKings esports, BGMI team, BGMI esports India, MadKings gaming">
+  <meta name="author" content="MadKings Esports">
+  <title>MadKings Esports — Building a Kingdom of Gamers</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/players/logo.png">
+  <style>
+    /* GLOBAL ENHANCEMENTS & TYPOGRAPHY */
+    html { scroll-behavior: smooth; }
+    
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 900;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* CYBER DIVIDERS (Between Sections) */
+    .cyber-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      position: relative;
+      margin: 2rem 0;
+    }
+    .cyber-divider::after {
+      content: '';
+      position: absolute;
+      top: -2px; left: 50%;
+      transform: translateX(-50%);
+      width: 50px; height: 5px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+
+    /* HERO SECTION ADVANCED ANIMATIONS */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      z-index: 1;
+    }
+    .hero-bg-grid {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -2;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(50px); }
+    }
+    /* Ambient Hero Glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    }
+    
+    .floating-crown{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-bottom:20px;
+}
+
+.floating-crown img{
+width:90px;
+height:auto;
+animation: float 3s ease-in-out infinite;
+filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+}
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin: 0.5rem 0;
+      /* Text Gradient */
+      background: linear-gradient(to right, #ffffff, rgba(255,255,255,0.5));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #ffffff; /* Fallback for safe rendering */
+      
+      /* THE FIX: Opacity 0 and 'forwards' added */
+      opacity: 0;
+      animation: textReveal 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes textReveal {
+      0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* BUTTON ENHANCEMENTS */
+    .hero-buttons .btn {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .hero-buttons .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+    .hero-buttons .btn:hover::before {
+      left: 100%;
+    }
+    .hero-buttons .btn:hover {
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      transform: translateY(-3px);
+    }
+
+    /* PLAYER CARD 3D & GLOW HOVER */
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .player-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+    }
+    .player-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(255,255,255,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.1) inset;
+    }
+    .player-card-img {
+      overflow: hidden;
+    }
+    .player-card-img img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+      filter: grayscale(20%);
+    }
+    .player-card:hover .player-card-img img {
+      transform: scale(1.1);
+      filter: grayscale(0%);
+    }
+    .player-card-info {
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .player-card-info h3 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.2rem;
+      display: inline-block;
+      position: relative;
+    }
+    /* Animated Underline */
+    .player-card-info h3::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      transition: width 0.4s ease;
+    }
+    .player-card:hover .player-card-info h3::after {
+      width: 100%;
+    }
+    .player-card-info span {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+
+    /* VIDEO CARD LIFT & GLOW */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .video-card {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+    }
+    .video-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      box-shadow: 0 0 0 rgba(255,255,255,0) inset;
+      pointer-events: none;
+      transition: box-shadow 0.4s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    }
+    .video-card:hover::after {
+      box-shadow: 0 0 20px rgba(255,255,255,0.1) inset;
+    }
+    .video-card-info {
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .video-card-info h4 {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* SOCIAL SECTION STAGGER ANIMATION */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .insta-grid blockquote {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .insta-grid.in-view blockquote {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Staggering the child delays */
+    .insta-grid blockquote:nth-child(1) { transition-delay: 0.1s; }
+    .insta-grid blockquote:nth-child(2) { transition-delay: 0.2s; }
+    .insta-grid blockquote:nth-child(3) { transition-delay: 0.3s; }
+    .insta-grid blockquote:nth-child(4) { transition-delay: 0.4s; }
+    .insta-grid blockquote:nth-child(5) { transition-delay: 0.5s; }
+    .insta-grid blockquote:nth-child(6) { transition-delay: 0.6s; }
+    
+    /* ==========================================
+       PREMIUM ESPORTS APPAREL DROP AESTHETIC
+       ========================================== */
+    .merch-section {
+      position: relative;
+      padding: 10rem 0;
+      text-align: center;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: #050505; /* Deep dark background for contrast */
+    }
+
+    /* Massive Background Watermark Text */
+    .merch-section::before {
+      content: 'MADKINGS';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22vw;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.02);
+      white-space: nowrap;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .merch-teaser {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Hollow/Outline Streetwear Typography */
+    .merch-title {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px; /* Tight spacing for modern feel */
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    /* Hover effect on title to fill it with solid white */
+    .merch-title:hover {
+      color: #ffffff;
+      -webkit-text-stroke: 0px transparent;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .merch-text {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 3.5rem;
+      font-weight: 700;
+    }
+
+    /* Sharp, High-Contrast "Hype Drop" Button */
+    .merch-btn {
+      display: inline-block;
+      padding: 1.2rem 3.5rem;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      border-radius: 0px; /* Sharp edges instead of round for streetwear vibe */
+      border: 2px solid #ffffff;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .merch-btn:hover {
+      background: transparent;
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* PREMIUM ADD-ON SECTIONS */
+    .premium-intro {
+      text-align: center;
+      padding: 5rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .premium-intro h2 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .premium-intro p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+    .cta-section {
+      background: linear-gradient(0deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+      padding: 6rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .cta-section h2 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* SCROLL REVEAL ANIMATION CLASSES */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Particle Canvas container for Hero */
+    #hero-particles {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-bold">MAD</span><span class="brand-light">KINGS</span>
+      </a>
+    
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="aboutthecreator.html">about the creator</a>
+      </div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <canvas id="hero-particles"></canvas>
+    <div class="hero-content container">
+      <div class="floating-crown">
+<img src="assets/images/players/logo.png" alt="MadKings Logo">
+</div>
+      <p class="hero-tag reveal">BGMI Esports Organization</p>
+      <h1>MadKings<br>Esports</h1>
+      <p class="reveal">Building a Kingdom of Gamers</p>
+      <div class="hero-buttons reveal">
+        <a href="team.html" class="btn btn-primary">Explore Team</a>
+        <a href="content.html" class="btn btn-outline">Watch Content</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cyber-divider"></div>
+
+  <section class="premium-intro reveal">
+    <h2>Welcome To The Kingdom</h2>
+    <p>We are more than just an esports team. We are a legacy in the making. From dominating the battlegrounds in BGMI to creating unparalleled gaming content, MadKings Esports represents the pinnacle of competitive drive and community spirit.</p>
+  </section>
+
+  <div class="cyber-divider"></div>
+
+  <section class="section" id="players">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-label reveal">Roster</p>
+        <h2 class="section-title reveal">Featured Players</h2>
+      </div>
+      <div class="players-grid">
+
+        <a href="https://liquipedia.net/pubgmobile/SHADOW" target="_blank" style="text-decoration:none; color:inherit;">
+<div class="player-card reveal">
+
+<div class="player-card-img">
+<img src="assets/images/players/shadow.png" alt="Shadow">
+</div>
+
+<div class="player-card-info">
+<h3>Shadow</h3>
+<span>In Game Leader</span>
+</div>
+
+</div>
+</a>
+
+        <a href="https://liquipedia.net/pubgmobile/ClutchGod" target="_blank" style="text-decoration:none;color:inherit;">
+
+<div class="player-card reveal">
+<div class="player-card-img">
+<img src="assets/images/players/clutchgod.png" alt="ClutchGod">
+</div>
+
+<div class="player-card-info">
+<h3>ClutchGod</h3>
+<span>Assaulter</span>
+</div>
+</div>
+
+</a>
+
+        <a href="https://www.instagram.com/ur.madpro/" target="_blank" style="text-decoration:none;color:inherit;">
+
+<div class="player-card reveal">
+<div class="player-card-img">
+<img src="assets/images/players/pro.png" alt="MadPro">
+</div>
+
+<div class="player-card-info">
+<h3>MadPro</h3>
+<span>Assaulter</span>
+</div>
+</div>
+
+</a>
+
+        <a href="https://liquipedia.net/pubgmobile/Syrax" target="_blank" style="text-decoration:none;color:inherit;">
+
+<div class="player-card reveal">
+<div class="player-card-img">
+<img src="assets/images/players/syrax.png" alt="Syrax">
+</div>
+
+<div class="player-card-info">
+<h3>Syrax</h3>
+<span>Player</span>
+</div>
+</div>
+
+</a>
+      </div>
+    </div>
+  </section>
+  <!-- ====== LEGENDS ====== -->
+  <section class="section roster-section" style="background:var(--bg-card-alt)">
+    <div class="container">
+      <p class="section-label reveal">Hall of Fame</p>
+      <h2 class="section-title reveal">Legend</h2>
+      <div class="roster-grid" style="max-width:320px">
+
+        <a href="https://liquipedia.net/pubgmobile/Neyoo" target="_blank" class="roster-card reveal">
+
+<div class="roster-card-visual">
+<img src="assets/images/players/neyoo.png" alt="Neyoo">
+</div>
+
+<div class="roster-card-body">
+<h3>Neyoo</h3>
+<p class="role">Retired</p>
+</div>
+
+</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-label reveal">Watch</p>
+        <h2 class="section-title reveal">Latest Content</h2>
+      </div>
+      <div class="video-grid">
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/WZBrSBCD1PE" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>MadCast EP-02 Episode</h4>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/P1L69JGPB-c" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>MadCast EP-03</h4>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/37-A_PlQzuY" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>MadKings EP-01</h4>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/bbzCaCeqJCA" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>IRL</h4>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/IGsDfgFOTYQ" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>Qualified for BGIS 2026</h4>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/P6LFO5GaeG8" title="MadKings Video" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-info">
+            <h4>BMIC Day 1</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="cyber-divider"></div>
+
+  <section class="section" id="socials">
+    <div class="container">
+      <div class="text-center">
+        <p class="section-label reveal">Connect</p>
+        <h2 class="section-title reveal">Socials</h2>
+      </div>
+      
+      <div class="insta-grid" id="insta-grid-container">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNaZsXjzKxn/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVOEngoDfPi/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNaDGPjsuTb/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DPv6cnRE98T/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSAKF_pkZos/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVOFYqrjE-W/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DNprYjLT_Ig/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DRADgPFDMvY/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQ6FpIvjdBc/" data-instgrm-version="14"></blockquote>
+      </div>
+    </div>
+  </section>
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <section class="section merch-section">
+    <div class="container">
+      <div class="merch-teaser reveal">
+        <h2 class="merch-title">MADKINGS MERCH</h2>
+        <p class="merch-text reveal">
+          Official jerseys & apparel dropping soon. Stay tuned.
+        </p>
+        <a href="shop.html" class="btn btn-primary merch-btn reveal">
+          Visit Shop
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section reveal">
+    <div class="container">
+      <h2>Join The Kingdom</h2>
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem;">Follow us on our journey to the top. Become a part of the MadKings family today.</p>
+      <a href="contact.html" class="btn btn-outline">Connect With Us</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">MadKings Esports</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        
+        <a href="privacypolicy.html">Privacy Policy</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="termsandconditions.html">Terms & Conditions</a>
+</div>
+        
+      </div>
+      <p class="footer-copy">&copy; 2026 MadKings Esports. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Intersection Observer for Scroll Animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with 'reveal' class
+      document.querySelectorAll('.reveal').forEach(el => {
+        scrollObserver.observe(el);
+      });
+
+      // Observe the Instagram grid for staggered entrance
+      const instaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            instaObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      const instaGrid = document.getElementById('insta-grid-container');
+      if(instaGrid) instaObserver.observe(instaGrid);
+
+      // 2. Lightweight Particle System for Hero
+      const canvas = document.getElementById('hero-particles');
+      const ctx = canvas.getContext('2d');
+      let particlesArray = [];
+      
+      function setCanvasSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      setCanvasSize();
+      window.addEventListener('resize', setCanvasSize);
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedY = Math.random() * -0.5 - 0.1;
+          this.speedX = Math.random() * 0.4 - 0.2;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX;
+          if (this.y < 0) {
+            this.y = canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+        }
+        draw() {
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        const numberOfParticles = (canvas.width * canvas.height) / 15000;
+        for (let i = 0; i < numberOfParticles; i++) {
+          particlesArray.push(new Particle());
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      initParticles();
+      animateParticles();
+    });
+  </script>
+</body>
+</html>

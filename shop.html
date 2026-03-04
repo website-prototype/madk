@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — MadKings Esports</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
+  </head>
+  <style>
+    /* Hero Section Enhancements */
+    .shop-hero {
+      position: relative;
+      text-align: center;
+      padding: 10rem 0 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .shop-hero h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+      font-weight: 800;
+    }
+
+    .shop-hero p {
+      font-size: 1.25rem;
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    .coming-badge {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      backdrop-filter: blur(5px);
+    }
+
+    @keyframes pulse-glow {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.1); transform: scale(1); }
+      50% { box-shadow: 0 0 25px rgba(255,255,255,0.3); transform: scale(1.05); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.1); transform: scale(1); }
+    }
+
+    /* Merch Preview Section */
+    .merch-section {
+      padding: 2rem 0 8rem;
+    }
+
+    .section-title.merch-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title.merch-title h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: inline-block;
+      position: relative;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      font-weight: 800;
+    }
+
+    /* Modern Grid Layout */
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Glass/Neon Merch Cards */
+    .merch-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .merch-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .merch-card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                  0 0 20px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .merch-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Image Placeholders */
+    .merch-image-placeholder {
+      height: 300px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      transition: transform 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    }
+
+    .merch-card:hover .merch-image-placeholder {
+      transform: scale(1.04);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Card Typography */
+    .merch-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .merch-status {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    .merch-card:hover .merch-status {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-bold">MAD</span><span class="brand-light">KINGS</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="aboutthecreator.html">about the creator</a>
+      </div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="shop-hero" style="padding-top:120px">
+    <div class="hero-bg-grid"></div>
+    <div class="container">
+      <h1>MadKings Merch</h1>
+      <p>The official uniform of the kings. Dropping soon.</p>
+      <div class="coming-badge">Coming Soon</div>
+    </div>
+  </section>
+
+  <section class="merch-section section">
+    <div class="container">
+      
+      <div class="section-title merch-title reveal">
+        <h2>Official MadKings Merchandise</h2>
+      </div>
+
+      <div class="merch-grid">
+        
+        <div class="merch-card reveal">
+          <div class="merch-image-placeholder">👕</div>
+          <div class="merch-info">
+            <h3>Pro Jersey 2026</h3>
+            <div class="merch-status">Coming Soon</div>
+          </div>
+        </div>
+
+        
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">MadKings Esports</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 MadKings Esports. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

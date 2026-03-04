@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Creator — MadKings Esports</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       PREMIUM MINIMALIST DESIGN SYSTEM
+       ========================================== */
+    :root {
+      --bg-color: #030303;
+      --text-main: #ffffff;
+      --text-muted: #888888;
+      --text-subtle: #555555;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent-gradient: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Layout & Spacing */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 7rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    }
+
+    /* Staggered Animation Delays */
+    .sec-1 { animation-delay: 0.1s; }
+    .sec-2 { animation-delay: 0.3s; }
+    .sec-3 { animation-delay: 0.5s; }
+    .sec-4 { animation-delay: 0.7s; }
+    .sec-5 { animation-delay: 0.9s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0 0 0.5rem 0;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin: 0 auto 1.5rem auto;
+      max-width: 650px;
+    }
+
+    /* Markers (01 //, 02 //, etc.) */
+    .section-marker {
+      font-family: monospace;
+      font-size: 1.2rem;
+      color: var(--text-subtle);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Project Philosophy List */
+    .philosophy-list {
+      list-style: none;
+      padding: 0;
+      margin: 3rem auto 0 auto;
+      max-width: 500px;
+    }
+
+    .philosophy-list li {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-main);
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .philosophy-list li:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Emphasis Block */
+    .emphasis-block {
+      margin-top: 3rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 2;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .contact-card {
+      flex: 1 1 250px;
+      max-width: 300px;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.01);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-5px);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin: 0 0 1rem 0;
+    }
+
+    .contact-card span {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-main);
+      transition: color 0.3s ease;
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--border);
+      margin: 0 auto 3rem auto;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 4rem 1.5rem;
+      }
+      section {
+        margin-bottom: 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <section class="sec-1">
+      <h1>About the Creator</h1>
+      <div class="subtitle">Founder • Designer • Developer</div>
+      <div class="divider"></div>
+    </section>
+
+    <section class="sec-2">
+      <h2>Ansh Katiyar</h2>
+      <div class="subtitle">Founder • Designer • Developer</div>
+      
+      <p>This platform was independently envisioned and built by Ansh Katiyar — a 20 years old creator driven by passion for esports and digital excellence.</p>
+      
+      <p>What began as an idea gradually evolved into a carefully crafted digital experience — designed with precision, built with patience, and refined with intention.</p>
+      
+      <p>Every animation, every transition, and every section reflects a commitment to quality and continuous improvement. This is more than just a website — it represents dedication, learning, and creative ambition.</p>
+      
+      <p>As a self-taught developer, Ansh believes in growing through building.</p>
+      
+      <p>No shortcuts. No templates. Just consistent effort and refinement.</p>
+    </section>
+
+    <section class="sec-3">
+      <div class="section-marker">01 //</div>
+      <h2>This project stands for:</h2>
+      
+      <ul class="philosophy-list">
+        <li>Passion for Competitive Esports</li>
+        <li>Commitment to Clean & Premium Design</li>
+        <li>Independent Creativity</li>
+        <li>Continuous Self-Improvement</li>
+      </ul>
+    </section>
+
+    <section class="sec-4">
+      <div class="section-marker">02 //</div>
+      <h2>A Note to Visitors</h2>
+      
+      <p>This website is built independently with dedication and learning in progress.</p>
+      
+      <p>If you notice any technical issues, design imperfections, or content inaccuracies, your understanding is sincerely appreciated.</p>
+      
+      <p>Constructive feedback is always welcome — growth is part of the journey.</p>
+      
+      <div class="emphasis-block">
+        Built with ambition.<br>
+        Built with consistency.<br>
+        Built with heart.
+      </div>
+    </section>
+
+    <section class="sec-5">
+      <div class="section-marker">03 //</div>
+      <h2>Connect with the Creator</h2>
+      
+      <div class="contact-grid">
+        <a href="https://www.instagram.com/ansh.webdev/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <h3>Instagram</h3>
+          <span>@ansh...katiyar</span>
+        </a>
+        
+        <a href="mailto:anshkatiyar6387@gmail.com" class="contact-card">
+          <h3>Email</h3>
+          <span>anshkatiyar6387@gmail.com</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

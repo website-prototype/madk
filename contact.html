@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — MadKings Esports</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
+  </head>
+  <style>
+    /* Section & Typography Hierarchy */
+    .premium-contact-section {
+      padding: 4rem 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-title h2 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      position: relative;
+      display: inline-block;
+      /* Inherits theme color, adding subtle text-shadow for premium feel */
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modern Grid Layout (Centers the 2 remaining cards) */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Glass / Neon Card Styling */
+    .contact-card {
+      position: relative;
+      flex: 1 1 350px;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.03); /* Subtle glass background */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Subtle Gradient Glow Around Cards */
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Hover Glow Effects */
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 
+                  0 0 20px rgba(255, 255, 255, 0.05) inset;
+    }
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Better Icon Styling */
+    .contact-card .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease, background 0.4s ease;
+    }
+    .contact-card:hover .icon {
+      transform: scale(1.1) rotate(5deg);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Typography Hierarchy Improvements */
+    .contact-card h3 {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .contact-card p {
+      font-size: 1rem;
+      opacity: 0.75;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Smooth Hover Animation for Links */
+    .contact-card a {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      /* Color inherits from global CSS */
+      transition: all 0.3s ease;
+    }
+    .contact-card a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-bold">MAD</span><span class="brand-light">KINGS</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="aboutthecreator.html">about the creator</a>
+      </div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Get in touch with MadKings Esports</p>
+    </div>
+  </header>
+
+  <section class="section premium-contact-section">
+    <div class="container">
+      
+      <div class="section-title reveal">
+        <h2>Connect With MadKings</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card reveal">
+          <div class="icon">📸</div>
+          <h3>Instagram</h3>
+          <p>Follow us for updates, behind‑the‑scenes, and announcements.</p>
+          <a href="https://www.instagram.com/madkingsesportsgg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@madkingsesports</a>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="icon">▶️</div>
+          <h3>YouTube</h3>
+          <p>Watch highlights, vlogs, and tournament recaps.</p>
+          <a href="http://www.youtube.com/@Madkingggs" target="_blank" rel="noopener">MadKings Esports</a>
+        </div>
+
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">MadKings Esports</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="content.html">Content</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 MadKings Esports. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
